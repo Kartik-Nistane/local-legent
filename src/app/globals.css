@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 43 33% 97%; /* #FAF7F0 */
+    --foreground: 24 10% 10%; /* #1C1917 */
+    --card: 0 0% 100%;
+    --card-foreground: 24 10% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 10% 10%;
+    --primary: 18 89% 40%; /* #C2410C Terracotta */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 25% 94%; /* Sand */
+    --secondary-foreground: 24 10% 20%;
+    --muted: 40 20% 93%;
+    --muted-foreground: 25 5% 45%;
+    --accent: 174 77% 26%; /* #0F766E Sage/Teal */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 36 18% 88%;
+    --input: 36 18% 88%;
+    --ring: 18 89% 40%;
+    --radius: 0.85rem;
+  }
+
+  body {
+    background-color: #FAF7F0;
+    color: #1C1917;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Playfair Display', Georgia, Cambria, serif;
+  }
+}
+
+/* Journal / Parchment texture effect */
+.bg-parchment-pattern {
+  background-color: #FAF7F0;
+  background-image: radial-gradient(#E8E1D3 0.75px, transparent 0.75px);
+  background-size: 16px 16px;
+}
+
+/* Custom editorial map markers */
+.custom-legend-marker {
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.custom-legend-marker:hover {
+  transform: scale(1.18) translateY(-4px);
+  z-index: 50 !important;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4EFE6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #DFD4C0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C8BAA1;
+}
+
+/* Animation for pulsating audio recorder */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(194, 65, 12, 0.5);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(194, 65, 12, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(194, 65, 12, 0);
+  }
+}
+
+.recording-pulse {
+  animation: pulse-ring 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
